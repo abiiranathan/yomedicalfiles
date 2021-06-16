@@ -33,7 +33,8 @@ a:hover {
   filter: brightness(1.5);
 }
 
-button {
+button,
+.btn {
   outline: none;
   padding: 0.45rem 1.5rem;
   cursor: pointer;
@@ -51,7 +52,7 @@ body {
   overflow-x: hidden;
   overscroll-behavior: contain;
   font-weight: 400;
-  font-family: sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 header {
@@ -64,11 +65,17 @@ header {
 }
 
 #navbar .brand {
-  display: block;
   color: var(--menu-link-color);
   font-size: 2rem;
   font-weight: 600;
-  text-align: center;
+  display: flex;
+  align-items: center;
+}
+
+#navbar {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 @media (max-width: 648px) {
@@ -79,11 +86,10 @@ header {
 }
 
 #navbar .navbar-nav {
+  transition: padding 3s;
   list-style: none;
   display: flex;
-  justify-content: space-evenly;
   align-items: center;
-  transition: padding 3s;
 }
 
 header.small {
@@ -92,16 +98,16 @@ header.small {
 
 header.small #navbar .brand {
   margin-bottom: 0;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 
 #navbar .navbar-nav li {
-  padding: 0.4rem 1rem;
+  padding: 0.5rem 1rem;
 }
 
 #navbar .navbar-nav li a {
   color: var(--menu-link-color);
-  padding: 10px;
+  padding: 1rem;
 }
 
 #navbar .navbar-nav li:hover {
@@ -114,7 +120,7 @@ header.small #navbar .brand {
   background-color: var(--text-secondary);
   position: absolute;
   z-index: 1;
-  top: -10px;
+  top: 0px;
   left: 50%;
   width: 100vw;
   transform: translateX(-50%);
@@ -126,7 +132,7 @@ header.small #navbar .brand {
   animation-fill-mode: forwards;
 }
 
-#navbar .navbar-nav li:hover > .submenu {
+#navbar .navbar-nav li > .submenu.active {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -226,7 +232,7 @@ header.small #navbar .brand {
   align-items: center;
   flex-direction: row-reverse;
   height: 80vh;
-  background-image: url(./images/android-phone.jpg);
+  background-image: url(../images/android-phone.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 10%;
@@ -284,8 +290,12 @@ header.small #navbar .brand {
   }
 }
 
-#main section:nth-child(2) {
-  background-color: var(--text-white);
+#main section:nth-child(3) {
+  background-color: rgb(19, 57, 108);
+}
+
+#main section:nth-child(3) .title {
+  color: #fff;
 }
 
 #main section .title {
@@ -304,7 +314,6 @@ header.small #navbar .brand {
 #main section .grid-items .item {
   background-color: var(--body-bg);
   border: 1px solid var(--card-border);
-  box-shadow: 0 0px 2px 2px var(--card-shadow-color);
   border-top-right-radius: 30px;
   border-top-left-radius: 30px;
   border-bottom-left-radius: 8px;
@@ -331,6 +340,7 @@ header.small #navbar .brand {
 
 #main section .grid-items .item:hover {
   box-shadow: 0 4px 30px 10px rgba(0, 0, 0, 0.5);
+  border: 2px solid saddlebrown;
 }
 
 #main section .grid-items .item h4 {
@@ -349,8 +359,14 @@ header.small #navbar .brand {
 }
 
 #main section .grid-items .item img {
+  transition: 1s cubic-bezier(0.215, 0.61, 0.355, 1);
   width: 100%;
   height: 250px;
+  object-fit: cover;
+}
+
+#main section .grid-items .item:hover > img {
+  transform: scale(1.1);
   object-fit: cover;
 }
 
@@ -359,6 +375,7 @@ header.small #navbar .brand {
   line-height: 1.6;
   width: 90%;
   margin: 1rem auto;
+  background-color: inherit;
 }
 
 #team {
@@ -588,6 +605,71 @@ button:disabled {
   color: tomato;
 }
 
+/* Carousal */
+#eclinichms {
+  max-width: 1200px;
+  margin: auto;
+}
+
+#carousal {
+  position: relative;
+  padding-top: 80px;
+}
+
+#carousal button {
+  transform: scale(0.8);
+}
+
+#carousal .carousal-item {
+  transition: 0.3s;
+  overflow: hidden;
+}
+
+.carousal-controls {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  color: var(--text-white);
+}
+
+#carousal .carousal-item img {
+  max-width: 100%;
+  animation-duration: 1s;
+  animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: max-height 1s;
+  border: 2px solid rgba(221, 214, 214, 0.5);
+  border-radius: 10px;
+  padding: 1rem;
+  object-fit: cover;
+  background-color: var(--text-white);
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
 @media screen and (max-width: 400px) {
   #main .tagline img {
     max-height: 50px;
@@ -597,6 +679,85 @@ button:disabled {
 
   #main .call-now {
     bottom: 100px;
+  }
+}
+
+.breadcrumbs {
+  width: 100%;
+  background-color: #ccc;
+}
+
+.breadcrumbs ul {
+  list-style: none;
+  display: flex;
+  padding: 1rem;
+}
+
+.breadcrumbs li:not(:last-child):after {
+  content: ">";
+}
+
+.breadcrumbs li a {
+  display: inline-block;
+  margin: 0 15px;
+  color: #05103d;
+}
+
+.breadcrumbs li:last-child a {
+  pointer-events: none;
+  color: grey;
+}
+
+.breadcrumbs li a:hover {
+  text-decoration: underline;
+}
+
+.ask_quotation {
+  color: rgb(3, 65, 3);
+  font-size: 1.5rem;
+  font-weight: 700;
+  border: 2px solid;
+  border-radius: 30px;
+  padding: 10px;
+  cursor: pointer;
+  transition: 0.5s;
+  display: inline-block;
+  margin: 2rem 0;
+}
+
+.ask_quotation:hover {
+  background-color: rgb(3, 65, 3);
+  color: #fff;
+}
+#eclinic_features {
+  list-style-position: outside;
+  text-align: justify;
+  margin-left: 1.5rem;
+  line-height: 1.8;
+}
+#eclinic_features li::marker {
+  color: #5a194e;
+  font-size: 1.5rem;
+}
+
+.eclinic_subtitle {
+  margin: 4rem 0 1rem 0;
+  text-transform: uppercase;
+  color: rgb(3, 65, 3);
+}
+
+.eclinic_subtitle::after {
+  content: "";
+  display: block;
+  height: 5px;
+  background-color: var(--text-orange);
+  background: var(--text-orange);
+}
+
+/* Mobile */
+@media screen and (max-width: 400px) {
+  #navbar .brand img {
+    display: none;
   }
 }
 
@@ -611,10 +772,14 @@ button:disabled {
 
 /* Desktop styles */
 @media screen and (min-width: 1080px) {
-  header #navbar {
-    display: flex;
+  #navbar {
     justify-content: space-between;
-    align-items: center;
+    flex-direction: row;
+  }
+
+  #navbar .navbar-nav {
+    margin-left: auto;
+    max-width: 500px;
   }
 
   #navbar .navbar-nav li a {

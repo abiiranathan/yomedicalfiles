@@ -17,36 +17,33 @@
       name="keywords"
       content="Software, web design, android development, medical systems, health management systems"
     />
-    <link rel="stylesheet" href="style.css" />
-    <script src="script.js" defer></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./static/style.css" />
+    <link rel="prefetch" href="./pages/eclinic.html" />
+    <link rel="prefetch" href="./pages/about.html" />
+    <script src="./static/script.js" defer></script>
+    <script src="./registerSW.js" defer></script>
   </head>
   <body>
     <header>
       <nav id="navbar">
-        <a href="/" class="brand" style="display: flex; align-items: center">
-          <img src="./images/icon.png" alt="Logo" height="40" /> Yo Medical Files (U) Limited
+        <a href="/" class="brand home-link">
+          <img src="./images/icon.png" alt="Logo" height="40" /> Yo Medical Files (U) Ltd
         </a>
         <ul class="navbar-nav">
-          <li><a href="/">Home</a></li>
-          <li>
-            <a href="#products">Products</a>
+          <li><a href="/" class="home-link">Home</a></li>
+          <li class="submenu-nav">
+            <a href="#!">Products</a>
             <ul class="navbar-nav submenu">
               <li>
-                <a href="#!">
-                  <h3>Medical File Yo</h3>
-                  <p>
-                    Online medical record storage for patients with online medical consultations
-                  </p>
-                </a>
-              </li>
-              <li>
-                <a href="#eclinichms">
+                <a href="./pages/eclinic.html" title="Eclinic HMS" class="ajax-page">
                   <h3>Eclinic Health Management System</h3>
                   <p>Affordable full scale desktop application for management patient data</p>
                 </a>
               </li>
               <li>
-                <a href="#cardio-monitor">
+                <a href="./pages/cardiomonitor.html" title="Cardio Monitor" class="ajax-page">
                   <h3>Cardio Monitor</h3>
                   <p>
                     Android application that offers free blood pressure and blood glucose monitoring
@@ -55,7 +52,7 @@
               </li>
             </ul>
           </li>
-          <li><a href="/about.html">About</a></li>
+          <li><a href="./pages/about.html" title="About" class="ajax-page">About</a></li>
         </ul>
       </nav>
     </header>
@@ -71,7 +68,7 @@
           </div>
           <button class="btn btn-cta">HIRE US</button>
           <div class="tagline">
-            <img src="./images/brand.png" />
+            <img src="./images/icon.png" />
           </div>
           <a class="call-now" href="tel:+256 782 000 000">Call us: +256 782 000 000</a>
         </div>
@@ -99,7 +96,7 @@
         <div class="grid-items">
           <div class="item web-dev">
             <h4>Web development</h4>
-            <img src="images/storage.svg" alt="Web development" />
+            <img src="./images/storage.svg" alt="Web development" />
             <p>
               We develop websites and web applications for individuals or companies at pocket
               friendly prices using modern technologies.
@@ -107,17 +104,16 @@
           </div>
           <div class="item android-dev">
             <h4>Android Apps</h4>
-            <img src="images/storage.svg" alt="Web development" />
+            <img src="./images/storage.svg" alt="Web development" />
             <p>
-              Wanna start an e-commerce app or food delivery app? Contact us on how to and we desire
-              your android app with the required API. Think of an idea and we shall help your shape
-              it!
+              Wanna start an e-commerce app or food delivery app? No problem. Think of an idea and
+              we shall help your shape it!
             </p>
           </div>
 
           <div class="item desktop-apps">
             <h4>Desktop Apps</h4>
-            <img src="images/storage.svg" alt="Web development" />
+            <img src="./images/storage.svg" alt="Web development" />
             <p>
               Desirous of enterprise desktop applications for clinics, accounting systems,
               supermarkets, pharmacies? No problem. We deliver on time!
@@ -125,7 +121,7 @@
           </div>
           <div class="item cloud-services">
             <h4>Cloud Storage</h4>
-            <img src="images/cloud.svg" alt="Web development" />
+            <img src="./images/cloud.svg" alt="Web development" />
             <p>
               You have a lot of data you can't afford to lose? We can help you back it up in the
               cloud, so you never have to feel that pain of losing your precious data! Be it images,
@@ -134,15 +130,15 @@
           </div>
           <div class="item video-conference">
             <h4>Communication Tools</h4>
-            <img src="images/cloud.svg" alt="Web development" />
+            <img src="./images/cloud.svg" alt="Web development" />
             <p>
               Interested in a custom chat application for your clients or video conferencing
-              applications. We can help your and your team meet the desired bussiness needs.
+              applications. We can help you and your team meet the desired bussiness needs.
             </p>
           </div>
           <div class="item coding-lessons">
             <h4>Software Consultancy</h4>
-            <img src="images/cloud.svg" alt="Web development" />
+            <img src="./images/cloud.svg" alt="Web development" />
             <p>
               In a digital age, frailty's name is software! Things will fail but we can help you fix
               them. If your application is powered by any of the following technologies: Django,
