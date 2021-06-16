@@ -239,7 +239,7 @@ header.small #navbar .brand {
 }
 
 .hero-cta {
-  background-color: var(--hero-bg-dark);
+  background-color: #070e29;
   opacity: 0.85;
   height: 100%;
 }
