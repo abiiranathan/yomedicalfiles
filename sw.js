@@ -1,7 +1,7 @@
 const appCache = [
   "/static/script.js",
   "/static/style.css",
-  "/",
+  "/index.html",
   "/pages/about.html",
   "/pages/eclinic.html",
   "/pages/cardiomonitor.html",
